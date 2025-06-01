@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -138,7 +138,7 @@ export default function PrevWorksPage() {
                 <Slider {...sliderSettings}>
                   {project.images.map((img, i) => (
                     <div key={i} className="px-4">
-                      <img
+                      <Image
                          src={img}
                          alt={`${project.title} - صورة ${i + 1}`}
                          className="w-full h-[450px] md:h-[500px] object-contain rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer bg-white"
@@ -162,7 +162,7 @@ export default function PrevWorksPage() {
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setSelectedImage(null)}
         >
-          <img
+          <Image
             src={selectedImage}
             alt="عرض كامل"
             className="max-w-[95%] max-h-[90%] rounded-lg shadow-2xl"

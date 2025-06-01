@@ -1,8 +1,8 @@
 "use client";
 import Logo from "./logo.png";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import { usePathname } from "next/navigation";

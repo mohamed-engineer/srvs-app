@@ -1,7 +1,6 @@
 "use client";
 
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-
+import Image from "next/image";
 const teamMembers = [
   {
     name: "Khaled Rashad",
@@ -49,7 +48,7 @@ export default function OurTeam() {
               className="group relative bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               {/* صورة العضو */}
-              <img
+              <Image
                 src={member.image}
                 alt={member.name}
                 className="w-full h-80 object-cover"

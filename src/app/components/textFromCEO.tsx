@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function VisionSection() {
@@ -55,7 +55,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
         {/* صورة المؤسس */}
         <div className="flex flex-col items-center gap-4">
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-teal-500 shadow-md">
-            <img
+            <Image
               src="/team/khaled.jpg"
               alt="Founder - Khaled Rashad"
               className="w-full h-full object-cover"
