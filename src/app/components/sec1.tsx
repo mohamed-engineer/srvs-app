@@ -31,9 +31,15 @@ export default function AboutUs() {
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
     });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
     return () => observer.disconnect();
   }, []);
+
+  // ✅ Hook useCountUp في أعلى المكون
+  const counts = stats.map((stat) => useCountUp(stat.value, startCount));
 
   return (
     <section
@@ -67,9 +73,9 @@ export default function AboutUs() {
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {stats.map(({ label, value, icon }, idx) => {
-            const count = useCountUp(value, startCount);
-            const isComplete = count === value;
+          {stats.map(({ label, icon }, idx) => {
+            const count = counts[idx];
+            const isComplete = count === stats[idx].value;
             return (
               <Reveal key={idx}>
                 <div
