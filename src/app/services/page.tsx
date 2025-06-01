@@ -13,7 +13,19 @@ import {
 } from "react-icons/fa";
 import Navbar from "../components/navbar";
 
-const services = [
+type Service = {
+  name: string;
+  icon: JSX.Element;
+  options: string[];
+};
+
+type Package = {
+  name: string;
+  price: string;
+  details: string;
+};
+
+const services: Service[] = [
   {
     name: "Graphic Design",
     icon: <FaPaintBrush className="text-3xl text-green-500 animate-bounce" />,
@@ -51,7 +63,7 @@ const services = [
   },
 ];
 
-const packages = [
+const packages: Package[] = [
   {
     name: "باقة تصميم موقع بسيط WordPress",
     price: "130 دولار",
@@ -82,12 +94,11 @@ const packages = [
 const whatsappNumber = "201118642272";
 
 export default function ServicesPage() {
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [notes, setNotes] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  // مزامنة الوضع الليلي مع localStorage وclass على html
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
@@ -118,9 +129,16 @@ export default function ServicesPage() {
   };
 
   const handleSend = () => {
-    const message = `مرحباً srvs، أريد طلب منكم خدمة ${selectedService?.name}\n\nالخيارات: ${selectedOptions.join(
+    if (!selectedService) return;
+
+    if (selectedOptions.length === 0) {
+      alert("يرجى اختيار خيار واحد على الأقل.");
+      return;
+    }
+
+    const message = `مرحباً SRVS، أريد طلب منكم خدمة ${selectedService.name}\n\nالخيارات: ${selectedOptions.join(
       ", "
-    )}\n\nملاحظات: ${notes}`;
+    )}\n\nملاحظات: ${notes || "لا توجد"}\n\nشكراً لكم.`;
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
@@ -143,7 +161,7 @@ export default function ServicesPage() {
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{pkg.details}</p>
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  `مرحباً srvs، أريد حجز الباقة التالية: ${pkg.name} - ${pkg.price} - ${pkg.details}`
+                  `مرحباً SRVS، أريد حجز الباقة التالية: ${pkg.name} - ${pkg.price} - ${pkg.details}`
                 )}`}
                 target="_blank"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
@@ -166,6 +184,16 @@ export default function ServicesPage() {
                 setNotes("");
               }}
               className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl cursor-pointer transition transform hover:scale-105"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setSelectedService(service);
+                  setSelectedOptions([]);
+                  setNotes("");
+                }
+              }}
+              aria-label={`اختر خدمة ${service.name}`}
             >
               <div className="mb-4">{service.icon}</div>
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{service.name}</h2>
@@ -174,12 +202,25 @@ export default function ServicesPage() {
         </div>
 
         {selectedService && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 w-full max-w-lg shadow-2xl border dark:border-gray-700">
-              <h2 className="text-2xl font-bold text-center mb-4 text-gray-800 dark:text-white">{selectedService.name}</h2>
-              <div className="space-y-3 mb-4">
+          <div
+            className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
+            <div
+              className="bg-white dark:bg-gray-900 rounded-xl p-6 w-full max-w-lg shadow-2xl border dark:border-gray-700"
+              tabIndex={-1}
+            >
+              <h2
+                id="modal-title"
+                className="text-2xl font-bold text-center mb-4 text-gray-800 dark:text-white"
+              >
+                {selectedService.name}
+              </h2>
+              <div className="space-y-3 mb-4 max-h-48 overflow-y-auto">
                 {selectedService.options.map((option: string) => (
-                  <label key={option} className="flex items-center gap-2">
+                  <label key={option} className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox"
                       className="form-checkbox h-5 w-5 text-green-500"
@@ -213,24 +254,21 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-
-          
         )}
-              <div className="flex justify-center mt-20 bg-white dark:bg-gray-900">
-  <a
-    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      "مرحباً SRVS، أريد حجز استشارة مجانية لعمل باكدج يناسبني"
-    )}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-  >
-    💬 حجز الاستشارة المجانية
-  </a>
-</div>
+
+        <div className="flex justify-center mt-20 bg-white dark:bg-gray-900">
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+              "مرحباً SRVS، أريد حجز استشارة مجانية لعمل باكدج يناسبني"
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            💬 حجز الاستشارة المجانية
+          </a>
+        </div>
       </div>
-
-
     </>
   );
 }

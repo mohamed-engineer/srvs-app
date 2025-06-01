@@ -45,17 +45,19 @@ const Navbar = () => {
     }
   };
 
-  const navLinkClass = (darkMode: boolean) =>
+  const navLinkClass = () =>
     "group relative inline-block px-1 text-sm font-bold transition-colors duration-200";
 
-  const underlineClass = (darkMode: boolean) =>
+  const underlineClass = () =>
     `absolute left-0 bottom-0 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out ${
       darkMode ? "bg-teal-400" : "bg-teal-600"
     }`;
 
-  const textClass = (darkMode: boolean) =>
+  const textClass = () =>
     `relative z-10 ${
-      darkMode ? "text-white group-hover:text-teal-400" : "text-gray-900 group-hover:text-teal-600"
+      darkMode
+        ? "text-white group-hover:text-teal-400"
+        : "text-gray-900 group-hover:text-teal-600"
     }`;
 
   return (
@@ -72,18 +74,24 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src={Logo} alt="SRVS Logo" width={100} height={100} className="rounded-full" />
+          <Image
+            src={Logo}
+            alt="SRVS Logo"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link href="#about" className={navLinkClass(darkMode)}>
-            <span className={textClass(darkMode)}>About</span>
-            <span className={underlineClass(darkMode)}></span>
+          <Link href="#about" className={navLinkClass()}>
+            <span className={textClass()}>About</span>
+            <span className={underlineClass()}></span>
           </Link>
-          <Link href="services" className={navLinkClass(darkMode)}>
-            <span className={textClass(darkMode)}>Services</span>
-            <span className={underlineClass(darkMode)}></span>
+          <Link href="services" className={navLinkClass()}>
+            <span className={textClass()}>Services</span>
+            <span className={underlineClass()}></span>
           </Link>
           <Link
             href="/prevworks"
@@ -91,30 +99,22 @@ const Navbar = () => {
               isWorksPage ? "text-teal-500 animate-pulse" : ""
             }`}
           >
-            <span
-              className={`relative z-10 ${
-                darkMode
-                  ? "text-white group-hover:text-teal-400"
-                  : "text-gray-900 group-hover:text-teal-600"
-              }`}
-            >
-              Works
-            </span>
+            <span className={textClass()}>Works</span>
             <span
               className={`absolute left-0 bottom-0 h-[2px] w-full origin-left transition-transform duration-300 ease-in-out ${
                 darkMode ? "bg-teal-400" : "bg-teal-600"
               } ${isWorksPage ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
             ></span>
           </Link>
-          <Link href="#store" className={navLinkClass(darkMode)}>
-            <span className={textClass(darkMode)}>Store</span>
-            <span className={underlineClass(darkMode)}></span>
+          <Link href="#store" className={navLinkClass()}>
+            <span className={textClass()}>Store</span>
+            <span className={underlineClass()}></span>
           </Link>
 
           <div className="relative group">
-            <button className={navLinkClass(darkMode)}>
-              <span className={textClass(darkMode)}>MORE</span>
-              <span className={underlineClass(darkMode)}></span>
+            <button className={navLinkClass()}>
+              <span className={textClass()}>MORE</span>
+              <span className={underlineClass()}></span>
             </button>
             <div
               className={`absolute hidden group-hover:flex flex-col left-0 mt-2 ${
@@ -141,31 +141,63 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center space-x-4 ml-4">
-            <a href="https://facebook.com" target="_blank" className={`${darkMode ? "hover:text-blue-500" : "hover:text-blue-700"}`}>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={darkMode ? "hover:text-blue-500" : "hover:text-blue-700"}
+            >
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" target="_blank" className={`${darkMode ? "hover:text-blue-400" : "hover:text-blue-600"}`}>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={darkMode ? "hover:text-blue-400" : "hover:text-blue-600"}
+            >
               <FaTwitter />
             </a>
-            <a href="https://linkedin.com" target="_blank" className={`${darkMode ? "hover:text-blue-300" : "hover:text-blue-500"}`}>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={darkMode ? "hover:text-blue-300" : "hover:text-blue-500"}
+            >
               <FaLinkedinIn />
             </a>
-            <a href="https://github.com" target="_blank" className={`${darkMode ? "hover:text-gray-400" : "hover:text-gray-700"}`}>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={darkMode ? "hover:text-gray-400" : "hover:text-gray-700"}
+            >
               <FaGithub />
             </a>
-            <button onClick={toggleDarkMode} className={`transition ${darkMode ? "hover:text-yellow-400" : "hover:text-yellow-600"}`}>
+            <button
+              onClick={toggleDarkMode}
+              className={`transition ${
+                darkMode ? "hover:text-yellow-400" : "hover:text-yellow-600"
+              }`}
+              aria-label="Toggle dark mode"
+            >
               {darkMode ? <HiSun size={20} /> : <HiMoon size={20} />}
             </button>
           </div>
         </div>
 
+        {/* Mobile menu toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <button onClick={toggleDarkMode}>
+          <button
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
+            className="focus:outline-none"
+          >
             {darkMode ? <HiSun size={22} /> : <HiMoon size={22} />}
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative w-8 h-8 flex items-center justify-center transition-transform duration-300"
+            className="relative w-8 h-8 flex items-center justify-center transition-transform duration-300 focus:outline-none"
+            aria-label="Toggle menu"
           >
             <div
               className={`transition-all duration-300 ${
@@ -185,46 +217,97 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
           className={`md:hidden px-4 pb-4 space-y-4 rounded-b-lg shadow-inner transition-colors duration-300 ${
             darkMode ? "bg-gray-900/90" : "bg-white/90"
           }`}
         >
-          <Link href="#about" className={`block transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <Link
+            href="#about"
+            className={`block transition-colors duration-200 hover:text-teal-400 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             About
           </Link>
-          <Link href="#Services" className={`block transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <Link
+            href="#services"
+            className={`block transition-colors duration-200 hover:text-teal-400 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             Services
           </Link>
-          <Link href="/prevworks" className={`block transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <Link
+            href="/prevworks"
+            className={`block transition-colors duration-200 hover:text-teal-400 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             Works
           </Link>
-          <Link href="#store" className={`block transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          <Link
+            href="#store"
+            className={`block transition-colors duration-200 hover:text-teal-400 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             Store
           </Link>
           <div>
             <span className={`block font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}>
               More
             </span>
-            <Link href="#team" className={`block ml-4 transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+            <Link
+              href="#team"
+              className={`block ml-4 transition-colors duration-200 hover:text-teal-400 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
               Our Team
             </Link>
-            <Link href="#careers" className={`block ml-4 transition-colors duration-200 hover:text-teal-400 ${darkMode ? "text-white" : "text-gray-900"}`}>
+            <Link
+              href="#careers"
+              className={`block ml-4 transition-colors duration-200 hover:text-teal-400 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
               Careers
             </Link>
           </div>
           <div className="flex space-x-4 pt-2">
-            <a href="https://facebook.com" target="_blank" className="hover:text-blue-500">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500"
+            >
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" target="_blank" className="hover:text-blue-400">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400"
+            >
               <FaTwitter />
             </a>
-            <a href="https://linkedin.com" target="_blank" className="hover:text-blue-300">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-300"
+            >
               <FaLinkedinIn />
             </a>
-            <a href="https://github.com" target="_blank" className="hover:text-gray-400">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-400"
+            >
               <FaGithub />
             </a>
           </div>
