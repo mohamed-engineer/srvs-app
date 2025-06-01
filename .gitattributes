@@ -1,0 +1,9 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+\# filter=lfs diff=lfs merge=lfs -text
+الكبيرة filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+حسب filter=lfs diff=lfs merge=lfs -text
+نوع filter=lfs diff=lfs merge=lfs -text
+الملفات filter=lfs diff=lfs merge=lfs -text
