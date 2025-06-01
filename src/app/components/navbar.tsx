@@ -51,49 +51,45 @@ const Navbar = () => {
     </Link>
 
     {/* Desktop Menu */}
-    <div className="hidden md:flex items-center space-x-6">
-      <Link href="#about" className={navLinkClass()}>
-        <span className={textClass()}>About</span>
-        <span className={underlineClass()}></span>
+    <div className="hidden md:flex items-center space-x-6 text-white">
+      <Link href="#about" className="hover:text-teal-400 transition-colors">
+        <span className="text-white">About</span>
       </Link>
-      <Link href="services" className={navLinkClass()}>
-        <span className={textClass()}>Services</span>
-        <span className={underlineClass()}></span>
+      <Link href="#services" className="hover:text-teal-400 transition-colors">
+        <span className="text-white">Services</span>
       </Link>
       <Link
         href="/prevworks"
         className={`group relative inline-block px-1 text-sm font-bold transition-colors duration-200 ${
-          isWorksPage ? "text-teal-500 animate-pulse" : ""
+          isWorksPage ? "text-teal-500 animate-pulse" : "text-white"
         }`}
       >
-        <span className={textClass()}>Works</span>
+        <span>Works</span>
         <span
           className={`absolute left-0 bottom-0 h-[2px] w-full origin-left transition-transform duration-300 ease-in-out bg-teal-600 ${
             isWorksPage ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
           }`}
         ></span>
       </Link>
-      <Link href="#store" className={navLinkClass()}>
-        <span className={textClass()}>Store</span>
-        <span className={underlineClass()}></span>
+      <Link href="#store" className="hover:text-teal-400 transition-colors">
+        <span className="text-white">Store</span>
       </Link>
 
       <div className="relative group">
-        <button className={navLinkClass()}>
-          <span className={textClass()}>MORE</span>
-          <span className={underlineClass()}></span>
+        <button className="hover:text-teal-400 transition-colors">
+          <span className="text-white">MORE</span>
         </button>
-        <div className="absolute hidden group-hover:flex flex-col left-0 mt-2 bg-gray-100/90 rounded shadow-lg w-40 z-50 transition-opacity duration-300">
-          <Link href="#team" className="px-4 py-2 hover:bg-gray-200 rounded">
+        <div className="absolute hidden group-hover:flex flex-col left-0 mt-2 bg-gray-800/90 rounded shadow-lg w-40 z-50 transition-opacity duration-300">
+          <Link href="#team" className="px-4 py-2 text-white hover:bg-gray-700 rounded">
             Our Team
           </Link>
-          <Link href="#careers" className="px-4 py-2 hover:bg-gray-200 rounded">
+          <Link href="#careers" className="px-4 py-2 text-white hover:bg-gray-700 rounded">
             Careers
           </Link>
         </div>
       </div>
 
-      {/* White Icons */}
+      {/* Social Icons */}
       <div className="flex items-center space-x-4 ml-4">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
           <FaFacebookF />
@@ -118,10 +114,10 @@ const Navbar = () => {
         aria-label="Toggle menu"
       >
         <div className={`transition-all duration-300 ${isMobileMenuOpen ? "rotate-90 scale-90 opacity-0" : "opacity-100"}`}>
-          <HiMenu size={28} />
+          <HiMenu size={28} className="text-white" />
         </div>
         <div className={`absolute transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"}`}>
-          <HiX size={28} />
+          <HiX size={28} className="text-white" />
         </div>
       </button>
     </div>
@@ -129,30 +125,30 @@ const Navbar = () => {
 
   {/* Mobile Menu */}
   {isMobileMenuOpen && (
-    <div className="md:hidden px-4 pb-4 space-y-4 rounded-b-lg shadow-inner transition-colors duration-300 bg-white/90">
-      <Link href="#about" className="block text-gray-900 hover:text-teal-400">
+    <div className="md:hidden px-4 pb-4 space-y-4 rounded-b-lg shadow-inner transition-colors duration-300 bg-gray-900/95 text-white">
+      <Link href="#about" className="block text-white hover:text-teal-400">
         About
       </Link>
-      <Link href="#services" className="block text-gray-900 hover:text-teal-400">
+      <Link href="#services" className="block text-white hover:text-teal-400">
         Services
       </Link>
-      <Link href="/prevworks" className="block text-gray-900 hover:text-teal-400">
+      <Link href="/prevworks" className="block text-white hover:text-teal-400">
         Works
       </Link>
-      <Link href="#store" className="block text-gray-900 hover:text-teal-400">
+      <Link href="#store" className="block text-white hover:text-teal-400">
         Store
       </Link>
       <div>
-        <span className="block font-semibold text-gray-900">More</span>
-        <Link href="#team" className="block ml-4 text-gray-900 hover:text-teal-400">
+        <span className="block font-semibold text-white">More</span>
+        <Link href="#team" className="block ml-4 text-white hover:text-teal-400">
           Our Team
         </Link>
-        <Link href="#careers" className="block ml-4 text-gray-900 hover:text-teal-400">
+        <Link href="#careers" className="block ml-4 text-white hover:text-teal-400">
           Careers
         </Link>
       </div>
 
-      {/* White Icons in Mobile */}
+      {/* Social Icons in Mobile */}
       <div className="flex space-x-4 pt-2">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
           <FaFacebookF />
@@ -170,6 +166,8 @@ const Navbar = () => {
     </div>
   )}
 </nav>
+
+
 
   );
 };
