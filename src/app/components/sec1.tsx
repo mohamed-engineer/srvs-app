@@ -35,18 +35,18 @@ export default function AboutUs() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-24 text-center bg-white text-gray-900 transition-colors duration-500"
+      className="py-24 text-center bg-gray-900 text-white transition-colors duration-500"
     >
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
-          <h2 className="text-4xl font-extrabold mb-3 relative inline-block">
+          <h2 className="text-4xl text-white font-extrabold mb-3 relative inline-block">
             من نحن
             <span className="block mt-2 mx-auto h-1 w-24 rounded bg-teal-500"></span>
           </h2>
         </Reveal>
 
         <Reveal>
-          <p className="max-w-3xl mx-auto mb-16 text-lg sm:text-xl font-light leading-relaxed text-gray-700">
+          <p className="max-w-3xl mx-auto mb-16 text-lg sm:text-xl font-light leading-relaxed text-white">
             نحن في SRVS نقدم حلولاً تقنية متكاملة تشمل تصميم المواقع، تطوير البرمجيات، وخدمات
             الجرافيك ديزاين، لنساعد شركتك على النجاح والتميز في العالم الرقمي.
           </p>
@@ -59,7 +59,7 @@ export default function AboutUs() {
             return (
               <Reveal key={idx}>
                 <div
-                  className="relative rounded-3xl p-8 shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer before:absolute before:-top-5 before:left-1/2 before:-translate-x-1/2 before:w-14 before:h-1 before:rounded-full before:bg-teal-500 bg-gray-100 text-teal-600 flex flex-col items-center"
+                  className="relative rounded-3xl p-8 shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer before:absolute before:-top-5 before:left-1/2 before:-translate-x-1/2 before:w-14 before:h-1 before:rounded-full before:bg-teal-500 bg-gray-800 text-teal-600 flex flex-col items-center"
                 >
                   <div className="mb-4 text-6xl">{icon}</div>
                   <div
@@ -69,7 +69,7 @@ export default function AboutUs() {
                   >
                     {label.includes("سنوات") ? `${count} سنوات` : `${count}+`}
                   </div>
-                  <div className="text-xl font-semibold text-gray-800">
+                  <div className="text-xl font-semibold text-white">
                     {label}
                   </div>
                 </div>

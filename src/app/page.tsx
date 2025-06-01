@@ -9,7 +9,7 @@ import PartnersSlider from "./components/Partners";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/footer";
-
+import ServicesPage from "./components/services1";
 export default function Home() {
   return (
 <>
@@ -21,6 +21,7 @@ export default function Home() {
     <VisionSection />
     <ClientsSection />
     <PartnersSlider />
+    <ServicesPage />
 
     <Footer />
 </>

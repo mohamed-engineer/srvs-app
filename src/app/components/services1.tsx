@@ -11,7 +11,7 @@ import {
   FaServer,
   FaCloud,
 } from "react-icons/fa";
-import Navbar from "../components/navbar";
+import Navbar from "./navbar";
 
 type Service = {
   name: string;

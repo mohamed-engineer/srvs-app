@@ -36,9 +36,8 @@ export default function Services() {
   return (
     <section
       id="services"
-      className={`py-24 transition-colors duration-500 ${
-        isDark ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
+      className={"py-24 transition-colors duration-500 bg-gray-900 text-white"
+      }
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
         <Reveal>
@@ -53,7 +52,7 @@ export default function Services() {
         </Reveal>
 
         <Reveal>
-          <p className="max-w-2xl mx-auto mb-12 text-lg sm:text-xl font-light leading-relaxed text-gray-500 dark:text-gray-300">
+          <p className="max-w-2xl mx-auto mb-12 text-lg sm:text-xl font-light leading-relaxed text-white">
             نقدم مجموعة متكاملة من الخدمات الرقمية تساعد أعمالك على النمو والتميز.
           </p>
         </Reveal>
@@ -62,11 +61,7 @@ export default function Services() {
           {services.map((service, idx) => (
             <Reveal key={idx}>
               <div
-                className={`group rounded-3xl p-8 shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border ${
-                  isDark
-                    ? "bg-gray-800 border-gray-700 text-white"
-                    : "bg-gray-50 border-gray-200 text-gray-900"
-                }`}
+                className={"group rounded-3xl p-8 shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 border bg-gray-800 border-gray-700 text-white"}
               >
                 <div
                   className={`text-5xl mb-4 text-teal-500 group-hover:scale-110 transition-transform`}

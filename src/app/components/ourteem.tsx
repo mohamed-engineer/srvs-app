@@ -49,6 +49,8 @@ export default function OurTeam() {
             >
               {/* صورة العضو */}
               <Image
+              width={100}
+              height={100}
                 src={member.image}
                 alt={member.name}
                 className="w-full h-80 object-cover"
