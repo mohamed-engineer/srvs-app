@@ -1,274 +1,216 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
-import {
-  FaWhatsapp,
-  FaPaintBrush,
-  FaGlobe,
-  FaWordpressSimple,
-  FaCode,
-  FaBullhorn,
-  FaServer,
-  FaCloud,
-} from "react-icons/fa";
+import React from "react";
+import Image from "next/image";
+import { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
-type Service = {
-  name: string;
-  icon: JSX.Element;
-  options: string[];
-};
-
-type Package = {
-  name: string;
-  price: string;
-  details: string;
-};
-
-const services: Service[] = [
+const projects = [
   {
-    name: "Graphic Design",
-    icon: <FaPaintBrush className="text-3xl text-green-500 animate-bounce" />,
-    options: ["شعار", "هوية بصرية", "تصميمات سوشيال ميديا"],
+    title: "مشروع 1 - موقع إلكتروني",
+    category: "website",
+    images: [
+      "/prevworks/websites/first/img1.jpg",
+      "/prevworks/websites/first/img2.jpg",
+      "/prevworks/websites/first/img3.jpg",
+      "/prevworks/websites/first/img4.jpg",
+      "/prevworks/websites/first/img5.jpg",
+      "/prevworks/websites/first/img6.jpg",
+    ],
   },
   {
-    name: "Domain",
-    icon: <FaGlobe className="text-3xl text-green-500 animate-spin" />,
-    options: [".com", ".net", ".org"],
+    title: "مشروع 2 - موقع إلكتروني",
+    category: "website",
+    images: [
+      "/prevworks/websites/second/1.jpg",
+      "/prevworks/websites/second/2.jpg",
+      "/prevworks/websites/second/3.jpg",
+      "/prevworks/websites/second/4.jpg",
+      "/prevworks/websites/second/5.jpg",
+      "/prevworks/websites/second/6.jpg",
+    ],
   },
   {
-    name: "Web Design (WordPress)",
-    icon: <FaWordpressSimple className="text-3xl text-green-500 animate-pulse" />,
-    options: ["موقع بسيط - 130 دولار", "موقع احترافي - 270 دولار"],
+    title: "مشروع 3 - موقع إلكتروني",
+    category: "website",
+    images: [
+      "/prevworks/websites/third/1.jpg",
+      "/prevworks/websites/third/2.jpg",
+      "/prevworks/websites/first/3.jpg",
+    ],
   },
   {
-    name: "Web Design (Coding)",
-    icon: <FaCode className="text-3xl text-green-500 animate-bounce" />,
-    options: ["موقع بسيط - 150 دولار", "موقع احترافي - 350 دولار", "متجر إلكتروني - 650 دولار"],
+    title: "مشروع 4 - موقع إلكتروني",
+    category: "website",
+    images: ["/prevworks/websites/four/1.jpg", "/prevworks/websites/four/2.jpg"],
   },
   {
-    name: "Marketing",
-    icon: <FaBullhorn className="text-3xl text-green-500 animate-pulse" />,
-    options: ["إعلانات فيسبوك", "تحسين محركات البحث (SEO)", "إدارة حسابات"],
+    title: "مشروع 5 - موقع إلكتروني",
+    category: "website",
+    images: ["/prevworks/websites/five/1.jpg", "/prevworks/websites/five/2.jpg"],
   },
   {
-    name: "Web Hosting",
-    icon: <FaServer className="text-3xl text-green-500 animate-spin" />,
-    options: ["Basic", "Standard", "Premium"],
+    title: "مشروع 6 - موقع إلكتروني",
+    category: "website",
+    images: ["/prevworks/websites/six/1.jpg"],
   },
   {
-    name: "VPS Server",
-    icon: <FaCloud className="text-3xl text-green-500 animate-bounce" />,
-    options: ["1vCPU 2GB", "2vCPU 4GB", "4vCPU 8GB"],
+    title: "Brand kit",
+    category: "brand kit",
+    images: [
+      "/prevworks/brandkit/first/1.jpg",
+      "/prevworks/brandkit/first/2.jpg",
+      "/prevworks/brandkit/first/3.jpg",
+      "/prevworks/brandkit/first/4.jpg",
+      "/prevworks/brandkit/first/5.jpg",
+      "/prevworks/brandkit/first/6.jpg",
+    ],
+  },
+  {
+    title: "تصميم جرافيك (Brand Kit)",
+    category: "Graphic design",
+    images: [
+      "/prevworks/brandkit/second/1.jpg",
+      "/prevworks/brandkit/second/2.jpg",
+      "/prevworks/brandkit/second/3.jpg",
+      "/prevworks/brandkit/second/4.jpg",
+      "/prevworks/brandkit/second/5.jpg",
+      "/prevworks/brandkit/second/6.jpg",
+      "/prevworks/brandkit/second/7.jpg",
+      "/prevworks/brandkit/second/8.jpg",
+    ],
+  },
+  {
+    title: "طباعة الملابس",
+    category: "Printed T-shirts",
+    images: [
+      "/prevworks/brandkit/third/1.jpg",
+      "/prevworks/brandkit/third/2.jpg",
+      "/prevworks/brandkit/third/3.jpg",
+      "/prevworks/brandkit/third/4.jpg",
+      "/prevworks/brandkit/third/5.jpg",
+    ],
   },
 ];
 
-const packages: Package[] = [
-  {
-    name: "باقة تصميم موقع بسيط WordPress",
-    price: "130 دولار",
-    details: "يشمل استضافة ودومين لمدة عام",
-  },
-  {
-    name: "بـاقة تصميم موقع احترافي WordPress",
-    price: "270 دولار",
-    details: "يشمل استضافة ودومين لمدة عام",
-  },
-  {
-    name: "بـاقة تصميم موقع بسيط Coding",
-    price: "150 دولار",
-    details: "بدون استضافة أو دومين",
-  },
-  {
-    name: "بـاقة تصميم موقع احترافي Coding",
-    price: "350 دولار",
-    details: "يشمل جميع المميزات",
-  },
-  {
-    name: "بـاقة تصميم متجر إلكتروني Coding",
-    price: "650 دولار",
-    details: "يشمل جميع المميزات",
-  },
+const filters = [
+  { key: "website", label: "مواقع إلكترونية" },
+  { key: "brand kit", label: "Brand Kit" },
+  { key: "Graphic design", label: "الجرافيك ديزاين" },
+  { key: "Printed T-shirts", label: "طباعة الملابس" },
 ];
 
-const whatsappNumber = "201118642272";
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  arrows: false,
+  appendDots: (dots: React.ReactNode) => (
+    <div style={{ bottom: "-30px" }}>
+      <ul style={{ margin: 0 }}>{dots}</ul>
+    </div>
+  ),
+  customPaging: () => (
+    <div
+      style={{
+        width: "12px",
+        height: "12px",
+        borderRadius: "50%",
+        backgroundColor: "#cbd5e1",
+        display: "inline-block",
+        margin: "0 6px",
+        cursor: "pointer",
+      }}
+    />
+  ),
+};
 
-export default function ServicesPage() {
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [notes, setNotes] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+export default function PrevWorksPage() {
+  const [filter, setFilter] = useState("all");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const isDark = !darkMode;
-    setDarkMode(isDark);
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
-
-  const handleOptionChange = (option: string) => {
-    setSelectedOptions((prev) =>
-      prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option]
-    );
-  };
-
-  const handleSend = () => {
-    if (!selectedService) return;
-
-    if (selectedOptions.length === 0) {
-      alert("يرجى اختيار خيار واحد على الأقل.");
-      return;
-    }
-
-    const message = `مرحباً SRVS، أريد طلب منكم خدمة ${selectedService.name}\n\nالخيارات: ${selectedOptions.join(
-      ", "
-    )}\n\nملاحظات: ${notes || "لا توجد"}\n\nشكراً لكم.`;
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category === filter);
 
   return (
     <>
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <div className="min-h-screen bg-white dark:bg-gray-900 py-12 px-6 transition-colors duration-500">
-        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">
-          الباقات
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className="bg-gray-100 dark:bg-gray-800 shadow-lg p-6 rounded-2xl border border-gray-200 dark:border-gray-700 transition hover:scale-105"
-            >
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{pkg.name}</h2>
-              <p className="text-green-500 font-bold mb-1">{pkg.price}</p>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{pkg.details}</p>
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  `مرحباً SRVS، أريد حجز الباقة التالية: ${pkg.name} - ${pkg.price} - ${pkg.details}`
-                )}`}
-                target="_blank"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp className="text-lg" /> حجز الباقة عبر واتساب
-              </a>
-            </div>
-          ))}
-        </div>
+      <Navbar />
+      <section className="py-24 px-6 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white min-h-screen">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-extrabold text-center mb-12 tracking-wide">
+            الأعمال السابقة
+          </h1>
 
-        <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-10">خدماتنا</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {services.map((service) => (
-            <div
-              key={service.name}
-              onClick={() => {
-                setSelectedService(service);
-                setSelectedOptions([]);
-                setNotes("");
-              }}
-              className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl cursor-pointer transition transform hover:scale-105"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setSelectedService(service);
-                  setSelectedOptions([]);
-                  setNotes("");
-                }
-              }}
-              aria-label={`اختر خدمة ${service.name}`}
-            >
-              <div className="mb-4">{service.icon}</div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{service.name}</h2>
-            </div>
-          ))}
-        </div>
-
-        {selectedService && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            <div
-              className="bg-white dark:bg-gray-900 rounded-xl p-6 w-full max-w-lg shadow-2xl border dark:border-gray-700"
-              tabIndex={-1}
-            >
-              <h2
-                id="modal-title"
-                className="text-2xl font-bold text-center mb-4 text-gray-800 dark:text-white"
+          <div className="flex justify-center gap-6 mb-16 flex-wrap">
+            {filters.map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setFilter(key)}
+                className={`px-5 py-2 rounded-full border-2 transition-colors duration-300 font-semibold
+                  ${
+                    filter === key
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-transparent text-gray-700 dark:text-gray-300 border-gray-400 hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-700 dark:hover:text-white"
+                  }`}
               >
-                {selectedService.name}
-              </h2>
-              <div className="space-y-3 mb-4 max-h-48 overflow-y-auto">
-                {selectedService.options.map((option: string) => (
-                  <label key={option} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox h-5 w-5 text-green-500"
-                      checked={selectedOptions.includes(option)}
-                      onChange={() => handleOptionChange(option)}
-                    />
-                    <span className="text-gray-800 dark:text-gray-200">{option}</span>
-                  </label>
-                ))}
-              </div>
-              <textarea
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white mb-4"
-                rows={3}
-                placeholder="ملاحظات إضافية (اختياري)"
-              ></textarea>
-              <div className="flex justify-between gap-4">
-                <button
-                  onClick={() => setSelectedService(null)}
-                  className="w-full py-2 rounded-lg bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600 transition"
-                >
-                  إغلاق
-                </button>
-                <button
-                  onClick={handleSend}
-                  className="w-full py-2 rounded-lg bg-green-500 hover:bg-green-600 text-white transition flex items-center justify-center gap-2"
-                >
-                  <FaWhatsapp className="text-xl" /> إرسال الطلب
-                </button>
-              </div>
-            </div>
+                {label}
+              </button>
+            ))}
           </div>
-        )}
 
-        <div className="flex justify-center mt-20 bg-white dark:bg-gray-900">
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-              "مرحباً SRVS، أريد حجز استشارة مجانية لعمل باكدج يناسبني"
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-          >
-            💬 حجز الاستشارة المجانية
-          </a>
+          {filteredProjects.length === 0 ? (
+            <p className="text-center text-lg mt-10">لا توجد مشاريع في هذا القسم.</p>
+          ) : (
+            filteredProjects.map((project, idx) => (
+              <div key={idx} className="mb-24">
+                <h2 className="text-3xl font-semibold mb-6 border-b-4 border-blue-500 inline-block pb-2">
+                  {project.title}
+                </h2>
+                <Slider {...sliderSettings}>
+                  {project.images.map((img, i) => (
+                    <div key={i} className="px-4">
+                      <Image
+                        src={img}
+                        alt={`${project.title} - صورة ${i + 1}`}
+                        className="w-full h-[450px] md:h-[500px] object-contain rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer bg-white"
+                        loading="lazy"
+                        onClick={() => setSelectedImage(img)}
+                        width={800}
+                        height={500}
+                      />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+            ))
+          )}
         </div>
-      </div>
+      </section>
+      <Footer />
+
+      {/* نافذة عرض الصورة */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <Image
+            src={selectedImage}
+            alt="عرض كامل"
+            className="max-w-[95%] max-h-[90%] rounded-lg shadow-2xl"
+            width={1000}
+            height={800}
+          />
+        </div>
+      )}
     </>
   );
 }

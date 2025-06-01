@@ -1,22 +1,26 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 
 export default function VisionSection() {
-  const fullText = `At SRVS, our vision is to be more than just a digital services company—we aim to partner with our clients to build sustainable and impactful successes. 
+  const fullText = useMemo(
+    () =>
+      `At SRVS, our vision is to be more than just a digital services company—we aim to partner with our clients to build sustainable and impactful successes. 
 We believe every project holds the potential to become a success story, and every idea can transform into reality with strategic planning and genuine passion. 
 Our mission is to deliver exceptional experiences that empower our clients and position them as leaders in their markets. 
 “Your success is our success.” This principle drives us daily. We see our clients as partners, and together, we turn visions into results. 
 From website design to social media management and marketing strategies, we innovate and execute with excellence. 
-With SRVS, we don’t follow the market—we create it. Let’s turn the impossible into reality, together.`;
+With SRVS, we don’t follow the market—we create it. Let’s turn the impossible into reality, together.`,
+    []
+  );
+
+  const totalDuration = 5000; // 5 ثواني
+  const intervalTime = useMemo(() => totalDuration / fullText.length, [fullText]);
 
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [startTyping, setStartTyping] = useState(false);
   const sectionRef = useRef(null);
-
-  const totalDuration = 5000; // 5 ثواني
-  const intervalTime = totalDuration / fullText.length;
 
   // ✨ مراقبة الظهور
   useEffect(() => {
@@ -44,7 +48,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
       }, intervalTime);
       return () => clearTimeout(timeout);
     }
-  }, [index, startTyping]);
+  }, [index, startTyping, fullText, intervalTime]);
 
   return (
     <section
@@ -58,11 +62,14 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
             <Image
               src="/team/khaled.jpg"
               alt="Founder - Khaled Rashad"
+              width={224}
+              height={224}
               className="w-full h-full object-cover"
             />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 dark:text-white text-center">
-            Khaled Rashad<br />
+            Khaled Rashad
+            <br />
             <span className="text-teal-500">Founder & CEO</span>
           </h3>
         </div>

@@ -70,7 +70,7 @@ const sliderSettings = {
   slidesToScroll: 1,
   autoplay: true,
   arrows: false,
-  appendDots: dots => (
+  appendDots: (dots: React.ReactNode) => (
     <div style={{ bottom: "-30px" }}>
       <ul style={{ margin: 0 }}>{dots}</ul>
     </div>
@@ -89,6 +89,7 @@ const sliderSettings = {
     />
   ),
 };
+
 
 export default function PrevWorksPage() {
   const [filter, setFilter] = useState("all");
