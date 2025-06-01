@@ -24,7 +24,12 @@ export default function AboutUs() {
     return () => observer.disconnect();
   }, []);
 
-  const counts = stats.map((stat) => useCountUp(stat.value, startCount));
+  // استدعاء useCountUp بشكل مباشر لكل عنصر
+  const countProjects = useCountUp(150, startCount);
+  const countClients = useCountUp(2000, startCount);
+  const countYears = useCountUp(8, startCount);
+
+  const counts = [countProjects, countClients, countYears];
 
   return (
     <section
