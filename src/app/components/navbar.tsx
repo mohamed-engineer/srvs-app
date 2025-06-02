@@ -23,13 +23,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinkClass = () =>
-    "group relative inline-block px-1 text-sm font-bold transition-colors duration-200";
+  // const navLinkClass = () =>
+  //   "group relative inline-block px-1 text-sm font-bold transition-colors duration-200";
 
-  const underlineClass = () =>
-    `absolute left-0 bottom-0 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out bg-teal-600`;
+  // const underlineClass = () =>
+  //   `absolute left-0 bottom-0 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out bg-teal-600`;
 
-  const textClass = () => `relative z-10 text-gray-900 group-hover:text-teal-600`;
+  // const textClass = () => `relative z-10 text-gray-900 group-hover:text-teal-600`;
 
   return (
 <nav
