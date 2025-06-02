@@ -53,10 +53,10 @@ const Navbar = () => {
     {/* Desktop Menu */}
     <div className="hidden md:flex items-center space-x-6 text-white">
       <Link href="#about" className="hover:text-teal-400 transition-colors">
-        <span className="text-white">About</span>
+        <span>About</span>
       </Link>
       <Link href="#services" className="hover:text-teal-400 transition-colors">
-        <span className="text-white">Services</span>
+        <span>Services</span>
       </Link>
       <Link
         href="/prevworks"
@@ -72,12 +72,12 @@ const Navbar = () => {
         ></span>
       </Link>
       <Link href="#store" className="hover:text-teal-400 transition-colors">
-        <span className="text-white">Store</span>
+        <span>Store</span>
       </Link>
 
       <div className="relative group">
         <button className="hover:text-teal-400 transition-colors">
-          <span className="text-white">MORE</span>
+          <span>MORE</span>
         </button>
         <div className="absolute hidden group-hover:flex flex-col left-0 mt-2 bg-gray-800/90 rounded shadow-lg w-40 z-50 transition-opacity duration-300">
           <Link href="#team" className="px-4 py-2 text-white hover:bg-gray-700 rounded">
@@ -166,6 +166,7 @@ const Navbar = () => {
     </div>
   )}
 </nav>
+
 
 
 
