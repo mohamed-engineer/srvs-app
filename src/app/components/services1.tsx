@@ -15,9 +15,10 @@ import Navbar from "./navbar";
 
 type Service = {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   options: string[];
 };
+
 
 type Package = {
   name: string;
