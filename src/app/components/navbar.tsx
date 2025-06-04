@@ -11,7 +11,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const pathname = usePathname();
   
 
   useEffect(() => {
