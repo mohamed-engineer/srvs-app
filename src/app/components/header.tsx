@@ -37,7 +37,7 @@ export default function Header() {
             playsInline
             className="absolute top-0 left-0 w-full h-full object-cover z-0"
           >
-            <source src="/videos/header-bg.mp4" type="video/mp4" />
+          <source src="https://z7xwkp1sgbngnyzo.public.blob.vercel-storage.com/header-bg-W2EqTJUpXoQa5FSrwASxoEXGW0lkry.mp4" type="video/mp4" />
             متصفحك لا يدعم تشغيل الفيديو
           </video>
 
