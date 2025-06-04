@@ -116,17 +116,17 @@ const Navbar = () => {
 
           {/* Social Icons in Mobile */}
           <div className="flex space-x-4 pt-2">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+            <a href="https://www.facebook.com/p/SRVS-100092562409213/" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
-              <FaTwitter />
+            <a href="https://instagram.com/srvs_corporation" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+              <FaInstagram />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+            <a href="https://linkedin.com/in/SRVS%20Corporation%20?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExT3VLdHY1VWpudXhjNHdsVQEeZPzIHRARINALk9DYK748ml7nYBibyObC4_8Jaxi-k6fgz1dsEfWa7Xk6Orc_aem_ztyDK_M59L2wHt3YFgLiCw" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaLinkedinIn />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
-              <FaGithub />
+            <a href="https://x.com/SRVS373412" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+              <FaTwitter />
             </a>
           </div>
         </div>

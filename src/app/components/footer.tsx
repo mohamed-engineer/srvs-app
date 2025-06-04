@@ -28,19 +28,19 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">تابعنا على</h3>
           <div className="flex space-x-4">
-            <a href="https://facebook.com" className="hover:text-white" aria-label="Facebook">
+            <a href="https://www.facebook.com/p/SRVS-100092562409213/" className="hover:text-white" aria-label="Facebook">
               <i className="fab fa-facebook-f text-xl"></i>
             </a>
-            <a href="https://twitter.com" className="hover:text-white" aria-label="Twitter">
+            <a href="https://x.com/SRVS373412" className="hover:text-white" aria-label="Twitter">
               <i className="fab fa-twitter text-xl"></i>
             </a>
-            <a href="https://instagram.com" className="hover:text-white" aria-label="Instagram">
+            <a href="https://instagram.com/srvs_corporation" className="hover:text-white" aria-label="Instagram">
               <i className="fab fa-instagram text-xl"></i>
             </a>
-            <a href="https://linkedin.com" className="hover:text-white" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/SRVS%20Corporation%20?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExT3VLdHY1VWpudXhjNHdsVQEeZPzIHRARINALk9DYK748ml7nYBibyObC4_8Jaxi-k6fgz1dsEfWa7Xk6Orc_aem_ztyDK_M59L2wHt3YFgLiCw" className="hover:text-white" aria-label="LinkedIn">
               <i className="fab fa-linkedin-in text-xl"></i>
             </a>
-            <a href="https://youtube.com" className="hover:text-white" aria-label="YouTube">
+            <a href="https://www.youtube.com/@SRVS01" className="hover:text-white" aria-label="YouTube">
               <i className="fab fa-youtube text-xl"></i>
             </a>
           </div>
