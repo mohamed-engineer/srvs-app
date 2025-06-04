@@ -59,7 +59,9 @@ export default function Header() {
           نقدم خدمات تقنية متكاملة تشمل تصميم المواقع والجرافيك ديزاين بجودة واحترافية.
         </p>
         <button className="bg-blue-600 hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-2xl text-lg shadow-md">
+          <a href="#about">
           ابدأ الآن
+          </a>
         </button>
       </div>
     </header>

@@ -1,5 +1,5 @@
 "use client";
-
+import Reveal from "./reveal";
 import Image from "next/image";
 const teamMembers = [
   {
@@ -35,17 +35,23 @@ export default function OurTeam() {
       className="py-24 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
     >
       <div className="max-w-6xl mx-auto px-6">
+        <Reveal>
+
         <h2 className="text-4xl font-extrabold mb-3 text-gray-900 dark:text-white">
           فريقنا
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-12">
           تعرف على الأشخاص وراء نجاحنا
         </p>
+        </Reveal>
+
+        <Reveal>
+
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           {teamMembers.map((member, idx) => (
             <div
-              key={idx}
-              className="group relative bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            key={idx}
+            className="group relative bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               {/* صورة العضو */}
               <Image
@@ -70,6 +76,7 @@ export default function OurTeam() {
             </div>
           ))}
         </div>
+          </Reveal>
       </div>
     </section>
   );

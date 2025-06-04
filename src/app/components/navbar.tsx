@@ -1,7 +1,7 @@
 "use client";
 import Logo from "./logo.png";
 import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
@@ -41,7 +41,8 @@ const Navbar = () => {
           {[
             { href: "#about", label: "About" },
             { href: "#services", label: "Services" },
-            { href: "#store", label: "Store" },
+            { href: "https://srvsstore.com/", label: "Store" },
+            { href: "#prevworks", label: "Works" },
           ].map((link) => (
             <Link key={link.href} href={link.href} className="group relative inline-block px-1 text-sm font-bold transition-colors duration-200">
               <span className="relative z-10">{link.label}</span>
@@ -49,19 +50,7 @@ const Navbar = () => {
             </Link>
           ))}
 
-          <Link
-            href="/prevworks"
-            className={`group relative inline-block px-1 text-sm font-bold transition-colors duration-200 ${
-              isWorksPage ? "text-teal-500 animate-pulse" : "text-white"
-            }`}
-          >
-            <span className="relative z-10">Works</span>
-            <span
-              className={`absolute left-0 bottom-0 h-[2px] w-full origin-left transition-transform duration-300 ease-in-out bg-teal-500 ${
-                isWorksPage ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-              }`}
-            ></span>
-          </Link>
+
 
           <div className="relative group">
             <button className="group-hover:text-teal-400 transition-colors font-bold text-sm px-1 relative">
@@ -80,17 +69,17 @@ const Navbar = () => {
 
           {/* Social Icons */}
           <div className="flex items-center space-x-4 ml-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+            <a href="https://www.facebook.com/p/SRVS-100092562409213/" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
-              <FaTwitter />
+            <a href="https://instagram.com/srvs_corporation" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+              <FaInstagram />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+            <a href="https://linkedin.com/in/SRVS%20Corporation%20?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExT3VLdHY1VWpudXhjNHdsVQEeZPzIHRARINALk9DYK748ml7nYBibyObC4_8Jaxi-k6fgz1dsEfWa7Xk6Orc_aem_ztyDK_M59L2wHt3YFgLiCw" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaLinkedinIn />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
-              <FaGithub />
+            <a href="https://x.com/SRVS373412" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
+              <FaTwitter />
             </a>
           </div>
         </div>
