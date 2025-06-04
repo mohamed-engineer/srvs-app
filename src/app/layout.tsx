@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Cairo } from "next/font/google"; // ← استيراد خط Cairo
 import "./globals.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +39,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${cairo.variable} antialiased`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
