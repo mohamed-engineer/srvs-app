@@ -65,3 +65,6 @@ font-family: var(--font-cairo);
 
 
 
+html {
+  scroll-behavior: smooth;
+}

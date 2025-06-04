@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/footer";
 import ServicesPage from "./components/services1";
+import PrevWorksPage from "./components/prevworks";
 export default function Home() {
   return (
 <>
@@ -22,6 +23,7 @@ export default function Home() {
     <ClientsSection />
     <PartnersSlider />
     <ServicesPage />
+    <PrevWorksPage />
 
     <Footer />
 </>
