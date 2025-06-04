@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const pathname = usePathname();
-  const isWorksPage = pathname === "/prevworks";
+  
 
   useEffect(() => {
     const handleScroll = () => {
