@@ -5,7 +5,6 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 import { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
