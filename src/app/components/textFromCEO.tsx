@@ -53,7 +53,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-white dark:bg-gray-900 transition-colors duration-500"
+      className="py-24 bg-gray-900 transition-colors duration-500"
     >
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
         {/* صورة المؤسس */}
@@ -67,7 +67,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white text-center">
+          <h3 className="text-xl font-semibold text-white text-center">
             Khaled Rashad
             <br />
             <span className="text-teal-500">Founder & CEO</span>
@@ -75,7 +75,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
         </div>
 
         {/* صندوق النص */}
-        <div className="flex-1 bg-gray-100 dark:bg-gray-800 p-6 md:p-10 rounded-3xl shadow-md text-gray-900 dark:text-white font-medium text-lg leading-relaxed relative">
+        <div className="flex-1bg-gray-800 p-6 md:p-10 rounded-3xl shadow-md text-white font-medium text-lg leading-relaxed relative">
           <div className="whitespace-pre-wrap">{text}</div>
           {index < fullText.length && startTyping && (
             <span className="absolute bottom-4 right-4 w-1 h-6 bg-teal-500 animate-pulse"></span>
