@@ -130,8 +130,8 @@ export default function PrevWorksPage() {
                   {project.images.map((img, i) => (
                     <div key={i} className="px-4">
                       <Image
-                        width={50}
-                        height={50}
+                        width={400}
+                        height={400}
                         src={img}
                         alt={`${project.title} - صورة ${i + 1}`}
                         className="w-full h-[450px] md:h-[500px] object-contain rounded-xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl cursor-pointer bg-white"
