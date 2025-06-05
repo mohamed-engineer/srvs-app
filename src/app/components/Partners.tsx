@@ -52,11 +52,11 @@ export default function PartnersSlider() {
 
   return (
     <>
-    <section className="py-24 bg-white dark:bg-gray-900 text-center">
+    <section className="py-24 bg-gray-900 text-center">
       <div className="max-w-6xl mx-auto px-6">
 
         <Reveal>
-        <h2 className="text-4xl font-extrabold mb-8 text-gray-900 dark:text-white">
+        <h2 className="text-4xl font-extrabold mb-8 text-white">
           شركاء النجاح
         </h2>
         </Reveal>
@@ -65,7 +65,7 @@ export default function PartnersSlider() {
         <Slider {...settings}>
           {clients.map((client, index) => (
             <div key={index} className="px-4">
-              <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl shadow-md flex items-center justify-center h-40">
+              <div className="bg-gray-800 p-6 rounded-2xl shadow-md flex items-center justify-center h-40">
                 <Image
                   src={client.logo}
                   alt={client.name}
