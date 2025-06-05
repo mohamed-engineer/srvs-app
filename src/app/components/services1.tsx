@@ -149,31 +149,33 @@ export default function ServicesPage() {
 
         <h1 className="text-4xl font-bold text-center mb-10">خدماتنا</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {services.map((service) => (
-            <div
-              key={service.name}
-              onClick={() => {
-                setSelectedService(service);
-                setSelectedOptions([]);
-                setNotes("");
-              }}
-              className="bg-gray-800 shadow-lg rounded-2xl p-6 border border-gray-700 hover:shadow-xl cursor-pointer transition transform hover:scale-105"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setSelectedService(service);
-                  setSelectedOptions([]);
-                  setNotes("");
-                }
-              }}
-              aria-label={`اختر خدمة ${service.name}`}
-            >
-              <div className="mb-4">{service.icon}</div>
-              <h2 className="text-xl font-semibold">{service.name}</h2>
-            </div>
-          ))}
-        </div>
+  {services.map((service) => (
+    <div
+      key={service.name}
+      onClick={() => {
+        setSelectedService(service);
+        setSelectedOptions([]);
+        setNotes("");
+      }}
+      className="bg-gray-800 shadow-lg rounded-2xl p-6 border border-gray-700 hover:shadow-xl cursor-pointer transition transform hover:scale-105"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          setSelectedService(service);
+          setSelectedOptions([]);
+          setNotes("");
+        }
+      }}
+      aria-label={`اختر خدمة ${service.name}`}
+    >
+      <div className="mb-4">{service.icon}</div>
+      <h2 className="text-xl font-semibold">{service.name}</h2>
+      <p className="text-sm text-gray-400 mt-2">قم بالضغط هنا لطلب الخدمة</p>
+    </div>
+  ))}
+</div>
+
 
         {selectedService && (
           <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">

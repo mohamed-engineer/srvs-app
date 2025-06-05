@@ -105,7 +105,7 @@ const Navbar = () => {
           <Link href="#about" className="block text-white hover:text-teal-400">About</Link>
           <Link href="#services" className="block text-white hover:text-teal-400">Services</Link>
           <Link href="/prevworks" className="block text-white hover:text-teal-400">Works</Link>
-          <Link href="#store" className="block text-white hover:text-teal-400">Store</Link>
+          <Link href="https://srvsstore.com/" className="block text-white hover:text-teal-400">Store</Link>
           <div>
             <span className="block font-semibold text-white">More</span>
             <Link href="#team" className="block ml-4 text-white hover:text-teal-400">Our Team</Link>
