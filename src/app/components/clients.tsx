@@ -25,10 +25,10 @@ export default function ClientsSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-      <section className="py-24 bg-white dark:bg-gray-900 text-center">
+      <section className="py-24 bg-gray-900 text-center">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
-        <h2 className="text-4xl font-extrabold mb-8 text-gray-900 dark:text-white">
+        <h2 className="text-4xl font-extrabold mb-8 text-white">
           عـــملاؤنــا
         </h2>
 </Reveal>
@@ -37,7 +37,7 @@ export default function ClientsSection() {
           {clients.map((client, idx) => (
               <motion.div
               key={idx}
-              className="relative bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-all duration-300 cursor-pointer"
+              className="relative bg-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-all duration-300 cursor-pointer"
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
               whileHover={{ scale: 1.05 }}
