@@ -97,7 +97,7 @@ export default function PrevWorksPage() {
 
   return (
     <>
-      <section id="prevworks" className="py-24 px-6 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white min-h-screen">
+      <section id="prevworks" className="py-24 px-6 bg-gradient-to-br from-white via-gray-100 to-gray-900  text-gray-900 text-white min-h-screen">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-extrabold text-center mb-12 tracking-wide">الأعمال السابقة</h1>
 
@@ -112,7 +112,7 @@ export default function PrevWorksPage() {
                 className={`px-5 py-2 rounded-full border-2 transition-colors duration-300 font-semibold ${
                   filter === key
                     ? "bg-blue-600 text-white border-blue-600"
-                    : "bg-transparent text-gray-700 dark:text-gray-300 border-gray-400 hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-700 dark:hover:text-white"
+                    : "bg-transparent border-gray-400 hover:bg-blue-100 hover:bg-blue-700 hover:text-white"
                 }`}
               >
                 {label}
