@@ -32,7 +32,7 @@ export default function OurTeam() {
   return (
     <section
       id="team"
-      className="py-24 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
+      className="py-24 bg-gray-900 text-center transition-colors duration-500"
     >
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
