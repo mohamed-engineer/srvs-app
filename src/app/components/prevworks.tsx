@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Creative Zone Academy",
     category: "website",
-    url: "https://example.com/first",
+    url: "https://creativezoneac.com/",
     images: [
       "/prevworks/websites/first/img1.jpg",
       "/prevworks/websites/first/img2.jpg",
@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Sun Jec",
     category: "website",
-    url: "https://example.com/second",
+    url: "https://sunjec.net/",
     images: [
       "/prevworks/websites/second/1.jpg",
       "/prevworks/websites/second/2.jpg",
@@ -35,7 +35,7 @@ const projects = [
   {
     title: "نوري",
     category: "website",
-    url: "https://example.com/third",
+    url: "https://noorybooks.com/",
     images: [
       "/prevworks/websites/third/1.jpg",
       "/prevworks/websites/third/2.jpg",
@@ -45,13 +45,13 @@ const projects = [
   {
     title: "Ahmed Selim's protofolio",
     category: "website",
-    url: "https://example.com/four",
+    url: "https://ahmedselimx.com/",
     images: ["/prevworks/websites/four/1.jpg", "/prevworks/websites/four/2.jpg"],
   },
   {
-    title: "شركة منارة النظم للتجارة",
+    title: "MANARAT ALNODHOM",
     category: "website",
-    url: "https://example.com/five",
+    url: "https://manaratalnodhom.com/",
     images: ["/prevworks/websites/five/1.jpg", "/prevworks/websites/five/2.jpg"],
   },
   {
