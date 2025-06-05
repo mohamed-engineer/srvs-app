@@ -97,7 +97,7 @@ export default function PrevWorksPage() {
 
   return (
     <>
-      <section id="prevworks" className="py-24 px-6 bg-gradient-to-br from-white via-gray-100 to-gray-900  text-gray-900 text-white min-h-screen">
+      <section id="prevworks" className="py-24 px-6 bg-gray-900  text-gray-900 text-white min-h-screen">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-extrabold text-center mb-12 tracking-wide">الأعمال السابقة</h1>
 
