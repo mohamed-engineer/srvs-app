@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const projects = [
   {
-    title: "مشروع 1 - موقع إلكتروني",
+    title: "Creative Zone Academy",
     category: "website",
     url: "https://example.com/first",
     images: [
@@ -20,7 +20,7 @@ const projects = [
     ],
   },
   {
-    title: "مشروع 2 - موقع إلكتروني",
+    title: "Sun Jec",
     category: "website",
     url: "https://example.com/second",
     images: [
@@ -33,7 +33,7 @@ const projects = [
     ],
   },
   {
-    title: "مشروع 3 - موقع إلكتروني",
+    title: "نوري",
     category: "website",
     url: "https://example.com/third",
     images: [
@@ -43,19 +43,19 @@ const projects = [
     ],
   },
   {
-    title: "مشروع 4 - موقع إلكتروني",
+    title: "Ahmed Selim's protofolio",
     category: "website",
     url: "https://example.com/four",
     images: ["/prevworks/websites/four/1.jpg", "/prevworks/websites/four/2.jpg"],
   },
   {
-    title: "مشروع 5 - موقع إلكتروني",
+    title: "شركة منارة النظم للتجارة",
     category: "website",
     url: "https://example.com/five",
     images: ["/prevworks/websites/five/1.jpg", "/prevworks/websites/five/2.jpg"],
   },
   {
-    title: "مشروع 6 - موقع إلكتروني",
+    title: "Project Advisor",
     category: "website",
     url: "https://example.com/six",
     images: ["/prevworks/websites/six/1.jpg", "/prevworks/websites/six/1.jpg"],
@@ -189,7 +189,7 @@ export default function PrevWorksPage() {
                 </Slider>
 
                 {project.category === "website" && project.url && (
-                  <div className="mt-6 text-center">
+                  <div className="mt-15 text-center">
                     <a
                       href={project.url}
                       target="_blank"
