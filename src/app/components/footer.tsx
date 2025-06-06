@@ -46,7 +46,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} SRVS Company. جميع الحقوق محفوظة.
+        &copy; {new Date().getFullYear()} SRVS . جميع الحقوق محفوظة.
       </div>
     </footer>
   );
