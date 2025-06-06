@@ -37,10 +37,10 @@ export default function OurTeam() {
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
 
-        <h2 className="text-4xl font-extrabold mb-3 text-gray-900 dark:text-white">
+        <h2 className="text-4xl font-extrabold mb-3 text-white">
           فريقنا
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12">
+        <p className="text-gray-300 mb-12">
           تعرف على الأشخاص وراء نجاحنا
         </p>
         </Reveal>
@@ -51,7 +51,7 @@ export default function OurTeam() {
           {teamMembers.map((member, idx) => (
             <div
             key={idx}
-            className="group relative bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+            className="group relative bg-gray-800 rounded-3xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               {/* صورة العضو */}
               <Image
@@ -66,10 +66,10 @@ export default function OurTeam() {
               
               {/* تفاصيل العضو */}
               <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                <h3 className="text-xl font-bold text-white">
                   {member.name}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-300">
+                <p className="text-gray-300">
                   {member.position}
                 </p>
               </div>
