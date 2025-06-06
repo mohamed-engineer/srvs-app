@@ -37,9 +37,7 @@ export default function Footer() {
             <a href="https://instagram.com/srvs_corporation" className="hover:text-white" aria-label="Instagram">
               <i className="fab fa-instagram text-xl"></i>
             </a>
-            <a href="https://linkedin.com/in/SRVS%20Corporation%20?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExT3VLdHY1VWpudXhjNHdsVQEeZPzIHRARINALk9DYK748ml7nYBibyObC4_8Jaxi-k6fgz1dsEfWa7Xk6Orc_aem_ztyDK_M59L2wHt3YFgLiCw" className="hover:text-white" aria-label="LinkedIn">
-              <i className="fab fa-linkedin-in text-xl"></i>
-            </a>
+
             <a href="https://www.youtube.com/@SRVS01" className="hover:text-white" aria-label="YouTube">
               <i className="fab fa-youtube text-xl"></i>
             </a>
