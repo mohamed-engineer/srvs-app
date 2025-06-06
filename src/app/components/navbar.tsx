@@ -73,9 +73,7 @@ const Navbar = () => {
             <a href="https://instagram.com/srvs_corporation" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaInstagram />
             </a>
-            <a href="https://linkedin.com/in/SRVS%20Corporation%20?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExT3VLdHY1VWpudXhjNHdsVQEeZPzIHRARINALk9DYK748ml7nYBibyObC4_8Jaxi-k6fgz1dsEfWa7Xk6Orc_aem_ztyDK_M59L2wHt3YFgLiCw" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
-              <FaLinkedinIn />
-            </a>
+
             <a href="https://x.com/SRVS373412" target="_blank" rel="noopener noreferrer" className="text-white hover:opacity-80 transition-opacity">
               <FaTwitter />
             </a>
