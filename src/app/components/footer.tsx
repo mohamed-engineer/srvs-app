@@ -17,10 +17,10 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">روابط مهمة</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="/about" className="hover:text-white">من نحن</a></li>
-            <li><a href="/contact" className="hover:text-white">تواصل معنا</a></li>
-            <li><a href="/privacy" className="hover:text-white">سياسة الخصوصية</a></li>
-            <li><a href="/terms" className="hover:text-white">الشروط والأحكام</a></li>
+            <li><a href="#about" className="hover:text-white">About us</a></li>
+            <li><a href="#services" className="hover:text-white">Services</a></li>
+            <li><a href="https://srvsstore.com/" className="hover:text-white">Store</a></li>
+            <li><a href="#prevworks" className="hover:text-white">Works</a></li>
           </ul>
         </div>
 
