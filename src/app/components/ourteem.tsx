@@ -38,7 +38,7 @@ export default function OurTeam() {
         <Reveal>
 
         <h2 className="text-4xl font-extrabold mb-3 text-white">
-          فريقنا
+          فريق إدارتنا
         </h2>
         <p className="text-gray-300 mb-12">
           تعرف على الأشخاص وراء نجاحنا
