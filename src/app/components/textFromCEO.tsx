@@ -60,7 +60,7 @@ With SRVS, we don’t follow the market—we create it. Let’s turn the impossi
         <div className="flex flex-col items-center gap-4">
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-teal-500 shadow-md">
             <Image
-              src="/team/khaled.jpg"
+              src="/team/khaled2.jpg"
               alt="Founder - Khaled Rashad"
               width={224}
               height={224}
